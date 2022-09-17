@@ -1,0 +1,16 @@
+
+deploy isync trading:
+  stage: deploy
+  tags:
+    - isync
+  script:
+    - cd /etc/terraform
+    - sudo terraform init
+    - sudo terraform plan
+    - sudo terraform apply -auto-approve
+    - cd /etc/ansible
+    - sudo ansible-playbook -i hosts build_isync.yml
+  variables:
+   GIT_STRATEGY: none
+  only:
+    - dev

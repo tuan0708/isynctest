@@ -1,0 +1,6 @@
+# Dependency directories
+.vs
+.vscode
+node_modules
+#public
+_LOG
